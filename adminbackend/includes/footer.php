@@ -1,4 +1,5 @@
 <footer>
+    <input type="hidden" name="ajax_url" id="ajax-url" value="<?= AJAX_URL ?>">
     <div class="pull-right">
         Admin Template
     </div>
@@ -18,5 +19,7 @@
 
 <!-- Custom Theme Scripts -->
 <script src="<?php echo ADMIN_URL; ?>assets/js/custom.min.js"></script>
+
+<script src="<?php echo ADMIN_URL; ?>assets/js/customadminfunctions.js"></script>
 </body>
 </html>

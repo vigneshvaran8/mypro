@@ -10,6 +10,10 @@ switch ($_GET['message'])
     	$message = 'Please don\'t save empty network values.';
     	$msgClass = 'alert alert-danger';
     	break;
+    case 'networknameexists';
+        $message = 'Network name already exists Please choose another one.';
+        $msgClass = 'alert alert-danger';
+        break;
 }
 if( $_GET['network_id'] ){
 	$networkID = $_GET['network_id'];

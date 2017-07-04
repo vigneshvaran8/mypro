@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require "includes/header.php"; ?>
 <?php
 switch ($_GET['message'])
@@ -10,6 +11,11 @@ switch ($_GET['message'])
         $message = 'Campaign deleted successfully.';
         $msgClass = 'alert alert-success';
         break;    
+}
+if( $_SESSION['msg'] ){
+    $message = $_SESSION['msg'];
+    $msgClass = 'alert alert-danger';
+    $_SESSION['msg'] = '';
 }
 ?>
     <link href="<?php echo ADMIN_URL; ?>assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
@@ -43,6 +49,7 @@ switch ($_GET['message'])
                             <table id="datatable" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Campaign Name</th>
                                     <th>Campaign ID</th>
                                     <th>Network</th>
@@ -57,11 +64,12 @@ switch ($_GET['message'])
                                 <tbody>
                                 <?php if( count(getAllcampaign()) == 0 ): ?>
                                 <tr>
-                                    <td colspan="8">There are no campaigns.</td>
+                                    <td colspan="9">There are no campaigns.</td>
                                 </tr>
                                 <?php else: ?>
                                     <?php foreach( getAllcampaign() as $campaigns ): ?>
                                         <tr>
+                                        <td><?php echo $campaigns['campaign_id'] ?></td>
                                         <td><?php echo $campaigns['campaign_name'] ?></td>
                                         <td><?php echo $campaigns['campaign_name_id'] ?></td>
                                         <td><?php echo getNetworknamebyid($campaigns['network_id']) ?></td>

@@ -7,7 +7,7 @@ switch ($_GET['message'])
         $msgClass = 'alert alert-success';
         break;
     case 'deleted':
-        $message = 'Server Details deleted successfully.';
+        $message = 'ISP deleted successfully.';
         $msgClass = 'alert alert-success';
         break;
 }
@@ -18,7 +18,7 @@ switch ($_GET['message'])
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Server</h3>
+                <h3>ISP</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -31,10 +31,10 @@ switch ($_GET['message'])
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>All Server Details
+                        <h2>All ISP
                             <small>
                                 <button class="btn" type="button"
-                                        onclick="location.href='<?php echo ADMIN_URL.'addeditserver.php' ?>';">Add Server</button>
+                                        onclick="location.href='<?php echo ADMIN_URL.'addeditisp.php' ?>';">Add ISP</button>
                             </small>
                         </h2>
                         <div class="clearfix"></div>
@@ -44,38 +44,28 @@ switch ($_GET['message'])
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Server Name</th>
-                                <th>Server IP</th>
-                                <th>Server Username</th>
-                                <th>Server Password</th>
-                                <th>HT Username</th>
-                                <th>HT Password</th>
+                                <th>ISP</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                             </thead>
 
                             <tbody>
-                            <?php if( count(getAllserverdetails()) == 0 ): ?>
+                            <?php if( count(getAllisp()) == 0 ): ?>
                                 <tr>
-                                    <td colspan="9">There are no server details.</td>
+                                    <td colspan="4">There are no ISP's</td>
                                 </tr>
                             <?php else: ?>
-                                <?php foreach( getAllserverdetails() as $serverdetails ): ?>
+                                <?php foreach( getAllisp() as $isp ): ?>
                                     <tr>
-                                        <td><?php echo $serverdetails['server_detail_id'] ?></td>
-                                        <td><?php echo $serverdetails['server_name'] ?></td>
-                                        <td><?php echo $serverdetails['server_ip'] ?></td>
-                                        <td><?php echo $serverdetails['server_username'] ?></td>
-                                        <td><?php echo $serverdetails['server_password'] ?></td>
-                                        <td><?php echo $serverdetails['ht_username'] ?></td>
-                                        <td><?php echo $serverdetails['ht_password'] ?></td>
+                                        <td><?php echo $isp['isp_id']; ?></td>
+                                        <td><?php echo $isp['isp_name']; ?></td>
                                         <td>
-                                            <a href="<?php echo ADMIN_URL.'addeditserver.php?server_detail_id='.$serverdetails['server_detail_id'].'' ?>">Edit</a>
+                                            <a href="<?php echo ADMIN_URL.'addeditisp.php?isp_id='.$isp['isp_id'].'' ?>">Edit</a>
                                         </td>
                                         <td>
-                                            <a href="<?php echo ADMIN_URL.'delete.php?server_detail_id='.$serverdetails['server_detail_id'].'' ?>"
-                                               onclick="return confirm('Are you sure you want to delete this Server Details?');"
+                                            <a href="<?php echo ADMIN_URL.'delete.php?isp_id='.$isp['isp_id'].'' ?>"
+                                               onclick="return confirm('Are you sure you want to delete this ISP and its related datafiles?');"
                                             >Delete</a>
                                         </td>
                                     </tr>

@@ -4,7 +4,7 @@
         <h3>Dashboard</h3>
         <ul class="nav side-menu">
             <li>
-                <a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                <a href="<?php echo ADMIN_URL.'dashboard.php' ?>"><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
             </li>
             <li>
                 <a><i class="fa fa-clone"></i>Network<span class="fa fa-chevron-down"></span></a>
@@ -21,6 +21,13 @@
                 </ul>
             </li>
             <li>
+                <a><i class="fa fa-clone"></i>Assets<span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="<?php echo ADMIN_URL.'assets.php' ?>">All Assets</a></li>
+                    <li><a href="<?php echo ADMIN_URL.'addeditassets.php' ?>">Add Asset</a></li>
+                </ul>
+            </li>
+            <li>
                 <a><i class="fa fa-clone"></i>Server<span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="<?php echo ADMIN_URL.'server.php' ?>">All Server</a></li>
@@ -30,22 +37,22 @@
             <li>
                 <a><i class="fa fa-clone"></i>ISP<span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="chartjs.html">All ISP</a></li>
-                    <li><a href="chartjs2.html">Add ISP</a></li>
+                    <li><a href="<?php echo ADMIN_URL.'isp.php' ?>">All ISP</a></li>
+                    <li><a href="<?php echo ADMIN_URL.'addeditisp.php' ?>">Add ISP</a></li>
                 </ul>
             </li>
             <li>
                 <a><i class="fa fa-clone"></i>Data Files<span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="fixed_sidebar.html">All Data Files</a></li>
-                    <li><a href="fixed_footer.html">Add Data Files</a></li>
+                    <li><a href="<?php echo ADMIN_URL.'datafiles.php' ?>">All Data Files</a></li>
+                    <li><a href="<?php echo ADMIN_URL.'addeditdatafiles.php' ?>">Add Data Files</a></li>
                 </ul>
             </li>
             <li>
                 <a><i class="fa fa-clone"></i>Users<span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="fixed_sidebar.html">All Users</a></li>
-                    <li><a href="fixed_footer.html">Add Users</a></li>
+                    <li><a href="<?php echo ADMIN_URL.'users.php' ?>">All Users</a></li>
+                    <li><a href="<?php echo ADMIN_URL.'addeditusers.php' ?>">Add Users</a></li>
                 </ul>
             </li>
             <li>
@@ -70,12 +77,10 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="images/img.jpg" alt="">
                         <?= getUserdisplayname() ?>
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="javascript:;"> Profile</a></li>
                         <li><a href="<?php echo ADMIN_URL.'logout.php'; ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                     </ul>
                 </li>

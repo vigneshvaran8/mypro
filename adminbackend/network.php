@@ -7,9 +7,14 @@ switch ($_GET['message'])
         $msgClass = 'alert alert-success';
         break;
     case 'deleted':
-        $message = 'Campaign deleted successfully.';
+        $message = 'Network deleted successfully.';
         $msgClass = 'alert alert-success';
         break;
+}
+if( $_SESSION['msg'] ){
+    $message = $_SESSION['msg'];
+    $msgClass = 'alert alert-danger';
+    $_SESSION['msg'] = '';
 }
 ?>
     <link href="<?php echo ADMIN_URL; ?>assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
@@ -43,6 +48,7 @@ switch ($_GET['message'])
                             <table id="datatable" class="table table-striped table-bordered">
                                 <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Network</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -52,11 +58,12 @@ switch ($_GET['message'])
                                 <tbody>
                                 <?php if( count(getAllnetwork()) == 0 ): ?>
                                 <tr>
-                                    <td colspan="3">There are no networks</td>
+                                    <td colspan="4">There are no networks</td>
                                 </tr>
                                 <?php else: ?>
                                     <?php foreach( getAllnetwork() as $networks ): ?>
                                         <tr>
+                                        <td><?php echo $networks['network_id']; ?></td>
                                         <td><?php echo $networks['network_name']; ?></td>
                                         <td>
                                         <a href="<?php echo ADMIN_URL.'addeditnetwork.php?network_id='.$networks['network_id'].'' ?>">Edit</a>

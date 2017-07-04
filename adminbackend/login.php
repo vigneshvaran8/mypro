@@ -48,8 +48,8 @@
             case 'exception':
                 $message = 'There was some problem with database please contact admin';
                 break;
-            default:
-                $message = 'There was a problem in login.';
+            /*default:
+                $message = 'There was a problem in login.';*/
         }
         ?>
         <div class="login_wrapper">
@@ -66,7 +66,7 @@
                         </div>
                         <div>
                             <input type="submit" class="btn btn-default submit" value="Log in">
-                            <a class="reset_pass" href="#">Lost your password?</a>
+                            <a class="reset_pass" href="#" style="display: none">Lost your password?</a>
                         </div>
 
                         <div class="clearfix"></div>
