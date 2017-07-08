@@ -65,7 +65,7 @@ if( $_GET['datafiles_id'] ){
                                         <span class="required">*</span>
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <select class="form-control" name="isp_id" id="isp-id" required>
+                                        <select class="form-control" name="isp_id" id="isp-id" required <?php echo (isset($datafilesID)?'disabled':'') ?>>
                                             <option value="">Choose option</option>
                                             <?php if( count(getAllisp()) > 0 ): ?>
                                                 <?php foreach( getAllisp() as $isp ): ?>
@@ -79,6 +79,7 @@ if( $_GET['datafiles_id'] ){
                                     </div>
                                 </div>
                                 <?php if( $datafilesID ): ?>
+                                    <input type="hidden" name="isp_id" value="<?= $datafilesData['isp_id'] ?>">
                                     <input type="hidden" name="datafiles_id" value="<?= $datafilesID ?>">
                                 <?php endif; ?>
                                 <div class="ln_solid"></div>

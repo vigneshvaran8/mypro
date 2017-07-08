@@ -7,7 +7,7 @@ switch ($_GET['message'])
         $msgClass = 'alert alert-success';
         break;
     case 'deleted':
-        $message = 'Network deleted successfully.';
+        $message = 'Network and its related campaign and assets deleted successfully.';
         $msgClass = 'alert alert-success';
         break;
 }
@@ -70,7 +70,7 @@ if( $_SESSION['msg'] ){
                                         </td>
                                         <td>
                                         <a href="<?php echo ADMIN_URL.'delete.php?network_id='.$networks['network_id'].'' ?>"
-                                        onclick="return confirm('Are you sure you want to delete this Network and its related campaigns?');"
+                                        onclick="return confirm('Are you sure you want to delete this Network and its related campaigns and assets?');"
                                         >Delete</a>
                                         </td>
                                         </tr>

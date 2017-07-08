@@ -182,10 +182,25 @@ function getCampaignnamebyid($campaignID)
     return $campaign['campaign_name'];
 }
 
+function getCampaignIdnamebycampaignId($campaignID)
+{
+    if( $campaignID == '' )return '';
+    global $db;
+    $tableName = 'campaign';
+    $db->where ("campaign_id", $campaignID);
+    $campaign = $db->getOne ($tableName);
+    return $campaign['campaign_name_id'];
+}
+
 
 function deleteCampaign($campaignID)
 {
     global $db;
+    /*Delete Related Assets with the campaign*/
+    $tableName = 'assets';
+    $db->where('campaign_id',$campaignID);
+    $db->delete($tableName);
+    /*Delete Campaign*/
     $tableName = 'campaign';
     $db->where('campaign_id', $campaignID);
     $db->delete($tableName);
@@ -195,7 +210,11 @@ function deleteCampaign($campaignID)
 function deleteNetwork($networkID)
 {
     global $db;
-    $tableName = 'network';
+    /*Delete Related Assets with the network*/
+    $tableName = 'assets';
+    $db->where('network_id',$networkID);
+    $db->delete($tableName);
+    /*Delete Related Campaigns with the network*/
     $campaigns = getCampaignsinnetwork($networkID);
     if(count($campaigns) > 0)
     {
@@ -204,6 +223,8 @@ function deleteNetwork($networkID)
             deleteCampaign($campaign);
         }
     }
+    /*Delete Network*/
+    $tableName = 'network';
     $db->where('network_id', $networkID);
     $db->delete($tableName);
     return;
@@ -231,11 +252,17 @@ function saveServer($serverdetailData,$serverdetailID)
     global $db;
     $tableName = 'server_detail';
     if( $serverdetailID ){
-        $db->where('server_detail_id', $serverdetailID)
-            ->update($tableName, $serverdetailData);
+        $serverDetail = $db->where('server_detail_id', $serverdetailID)
+                            ->update($tableName, $serverdetailData);
     }
     else{
         $serverDetail = $db->insert($tableName,$serverdetailData);
+    }
+    if( !$serverDetail ){
+        $errormsg = $db->getLastError();
+        $_SESSION['msg'] = $errormsg;
+        header('Location:'.ADMIN_URL.'server.php?message=error');
+        exit();
     }
     return;
 }
@@ -272,7 +299,7 @@ function saveIsp($ispName,$ispID=null)
     global $db;
     $tableName = 'isp';
     if( $ispID ){
-        $db->where('isp_id', $ispID)->update($tableName, ['isp_name' => $ispName,'updated_at' => date("Y-m-d H:i:s")]);
+        $isp = $db->where('isp_id', $ispID)->update($tableName, ['isp_name' => $ispName,'updated_at' => date("Y-m-d H:i:s")]);
     }
     else{
         $insertData = array(
@@ -281,6 +308,12 @@ function saveIsp($ispName,$ispID=null)
             "updated_at" => date("Y-m-d H:i:s")
         );
         $isp = $db->insert($tableName,$insertData);
+    }
+    if( !$isp ){
+        $errormsg = $db->getLastError();
+        $_SESSION['msg'] = $errormsg;
+        header('Location:'.ADMIN_URL.'isp.php?message=error');
+        exit();
     }
     return;
 }
@@ -567,3 +600,13 @@ function checkNetworkCampaignexistsalreadyAssets($assetsData)
         return false;
     }
 }
+
+function deleteAssests($assetsId)
+{
+    global $db;
+    $tableName = 'assets';
+    $db->where('assets_id', $assetsId);
+    $db->delete($tableName);
+    return;
+}
+

@@ -11,6 +11,11 @@ switch ($_GET['message'])
         $msgClass = 'alert alert-success';
         break;
 }
+if( $_SESSION['msg'] ){
+    $message = $_SESSION['msg'];
+    $msgClass = 'alert alert-danger';
+    $_SESSION['msg'] = '';
+}
 ?>
 <link href="<?php echo ADMIN_URL; ?>assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
 <!-- page content -->

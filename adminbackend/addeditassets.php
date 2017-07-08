@@ -19,7 +19,7 @@ switch ($_GET['message'])
         $msgClass = 'alert alert-danger';
         break;
     case 'networkcampaignexists';
-        $message = 'Data with same network and campaign already exists. Please choose that and update.';
+        $message = 'Assets already exists for that Campaign. Please choose that and update';
         $msgClass = 'alert alert-danger';
         break;
 }

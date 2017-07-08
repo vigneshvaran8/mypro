@@ -74,7 +74,7 @@ if( $_GET['campaign_id'] ){
                                     <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="network_id" id="network-name" required>
+                                    <select class="form-control" name="network_id" id="network-name" required <?php echo (isset($campaignID)?'disabled':'') ?> >
                                         <option value="">Choose option</option>
                                     <?php if( count(getAllnetwork()) > 0 ): ?>
                                         <?php foreach( getAllnetwork() as $network ): ?>    
@@ -109,6 +109,7 @@ if( $_GET['campaign_id'] ){
                                 </div>
                             </div>
                             <?php if( $campaignID ): ?>
+                            	<input type="hidden" name="network_id" value="<?= $campaignData['network_id'] ?>">
                             	<input type="hidden" name="campaign_id" value="<?= $campaignID ?>">
                             <?php endif; ?>
                             <div class="ln_solid"></div>

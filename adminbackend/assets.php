@@ -48,7 +48,8 @@ switch ($_GET['message'])
                                 <th>From Names</th>
                                 <th>Image Names</th>
                                 <th>Network</th>
-                                <th>Campaign</th>
+                                <th>Campaign Name</th>
+                                <th>Campaign ID</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -57,7 +58,7 @@ switch ($_GET['message'])
                             <tbody>
                             <?php if( count(getAllassets()) == 0 ): ?>
                                 <tr>
-                                    <td colspan="8">There are no assets.</td>
+                                    <td colspan="9">There are no assets.</td>
                                 </tr>
                             <?php else: ?>
                                 <?php foreach( getAllassets() as $allasset ): ?>
@@ -68,6 +69,7 @@ switch ($_GET['message'])
                                         <td><?php echo jsonTostring($allasset['image_name']); ?></td>
                                         <td><?php echo getNetworknamebyid($allasset['network_id']); ?></td>
                                         <td><?php echo getCampaignnamebyid($allasset['campaign_id']); ?></td>
+                                        <td><?php echo getCampaignIdnamebycampaignId($allasset['campaign_id']); ?></td>
                                         <td>
                                             <a href="<?php echo ADMIN_URL.'addeditassets.php?assets_id='.$allasset['assets_id'].'' ?>">Edit</a>
                                         </td>

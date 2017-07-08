@@ -42,4 +42,10 @@ if( isset($_GET['user_id']) )
     header('Location:'.ADMIN_URL.'users.php?message=deleted');
     exit();
 }
-
+/*Delete Assests*/
+if( isset($_GET['assets_id']) )
+{
+    deleteAssests( $_GET['assets_id'] );
+    header('Location:'.ADMIN_URL.'assets.php?message=deleted');
+    exit();
+}

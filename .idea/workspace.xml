@@ -3,17 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="480f18f2-47d4-48ee-844b-ef6e27c5646b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/addeditnetwork.php" afterPath="$PROJECT_DIR$/adminbackend/addeditnetwork.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/addeditassets.php" afterPath="$PROJECT_DIR$/adminbackend/addeditassets.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/addeditcampaign.php" afterPath="$PROJECT_DIR$/adminbackend/addeditcampaign.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/addeditdatafiles.php" afterPath="$PROJECT_DIR$/adminbackend/addeditdatafiles.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/assets.php" afterPath="$PROJECT_DIR$/adminbackend/assets.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/campaign.php" afterPath="$PROJECT_DIR$/adminbackend/campaign.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/delete.php" afterPath="$PROJECT_DIR$/adminbackend/delete.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/includes/adminfunctions.php" afterPath="$PROJECT_DIR$/adminbackend/includes/adminfunctions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/includes/footer.php" afterPath="$PROJECT_DIR$/adminbackend/includes/footer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/includes/sidebar.php" afterPath="$PROJECT_DIR$/adminbackend/includes/sidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/index.php" afterPath="$PROJECT_DIR$/adminbackend/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/login.php" afterPath="$PROJECT_DIR$/adminbackend/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/isp.php" afterPath="$PROJECT_DIR$/adminbackend/isp.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/network.php" afterPath="$PROJECT_DIR$/adminbackend/network.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adminbackend/server.php" afterPath="$PROJECT_DIR$/adminbackend/server.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.php" afterPath="$PROJECT_DIR$/config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,14 +34,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>insert(</find>
-      <find>n insert(</find>
-      <find>n insert</find>
-      <find>n INSERT</find>
-      <find>n INSERT(</find>
-      <find>n _buildInsert</find>
-      <find>n update</find>
-      <find>n where</find>
       <find>n _buildQuery</find>
       <find>n update(</find>
       <find>All Net</find>
@@ -59,12 +50,20 @@
       <find>getN</find>
       <find>getC</find>
       <find>getDa</find>
-      <find>getCa</find>
       <find>datafilesLabeledit</find>
       <find>getCampaignsinnetwork</find>
       <find>user-profile dropdown-toggle</find>
       <find>error</find>
+      <find>delete</find>
       <find>saveCa</find>
+      <find>saveSer</find>
+      <find>saveIsp</find>
+      <find>select</find>
+      <find>Data with same network and campaign already exists. Please choose that and update”</find>
+      <find>Data with same network and campaign already exists. Please choose that and update</find>
+      <find>getAllassets</find>
+      <find>campaign_name_id</find>
+      <find>getCa</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -87,7 +86,6 @@
         <option value="$PROJECT_DIR$/MysqliDb.php" />
         <option value="$PROJECT_DIR$/adminbackend/saveoptions.php" />
         <option value="$PROJECT_DIR$/adminbackend/configuration.php" />
-        <option value="$PROJECT_DIR$/adminbackend/addeditcampaign.php" />
         <option value="$PROJECT_DIR$/adminbackend/savecampaign.php" />
         <option value="$PROJECT_DIR$/adminbackend/addeditserver.php" />
         <option value="$PROJECT_DIR$/adminbackend/saveserver.php" />
@@ -95,29 +93,30 @@
         <option value="$PROJECT_DIR$/adminbackend/saveisp.php" />
         <option value="$PROJECT_DIR$/adminbackend/savedatafiles.php" />
         <option value="$PROJECT_DIR$/adminbackend/saveusers.php" />
-        <option value="$PROJECT_DIR$/adminbackend/delete.php" />
         <option value="$PROJECT_DIR$/adminbackend/savechangepassword.php" />
         <option value="$PROJECT_DIR$/adminbackend/changepassword.php" />
         <option value="$PROJECT_DIR$/adminbackend/addeditusers.php" />
-        <option value="$PROJECT_DIR$/adminbackend/addeditdatafiles.php" />
         <option value="$PROJECT_DIR$/config.php" />
         <option value="$PROJECT_DIR$/adminbackend/includes/footer.php" />
         <option value="$PROJECT_DIR$/includes/ajax.php" />
         <option value="$PROJECT_DIR$/adminbackend/assets/js/customadminfunctions.js" />
         <option value="$PROJECT_DIR$/adminbackend/saveassets.php" />
-        <option value="$PROJECT_DIR$/adminbackend/addeditassets.php" />
         <option value="$PROJECT_DIR$/adminbackend/includes/sidebar.php" />
         <option value="$PROJECT_DIR$/adminbackend/index.php" />
         <option value="$PROJECT_DIR$/adminbackend/login.php" />
         <option value="$PROJECT_DIR$/adminbackend/addeditnetwork.php" />
-        <option value="$PROJECT_DIR$/adminbackend/includes/adminfunctions.php" />
-        <option value="$PROJECT_DIR$/adminbackend/network.php" />
-        <option value="$PROJECT_DIR$/adminbackend/campaign.php" />
-        <option value="$PROJECT_DIR$/adminbackend/assets.php" />
-        <option value="$PROJECT_DIR$/adminbackend/server.php" />
-        <option value="$PROJECT_DIR$/adminbackend/isp.php" />
         <option value="$PROJECT_DIR$/adminbackend/datafiles.php" />
         <option value="$PROJECT_DIR$/adminbackend/users.php" />
+        <option value="$PROJECT_DIR$/adminbackend/delete.php" />
+        <option value="$PROJECT_DIR$/adminbackend/network.php" />
+        <option value="$PROJECT_DIR$/adminbackend/campaign.php" />
+        <option value="$PROJECT_DIR$/adminbackend/server.php" />
+        <option value="$PROJECT_DIR$/adminbackend/isp.php" />
+        <option value="$PROJECT_DIR$/adminbackend/addeditcampaign.php" />
+        <option value="$PROJECT_DIR$/adminbackend/addeditdatafiles.php" />
+        <option value="$PROJECT_DIR$/adminbackend/addeditassets.php" />
+        <option value="$PROJECT_DIR$/adminbackend/includes/adminfunctions.php" />
+        <option value="$PROJECT_DIR$/adminbackend/assets.php" />
       </list>
     </option>
   </component>
@@ -152,8 +151,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -177,24 +176,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="adminbackend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mailing" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mailing" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adminbackend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -317,11 +298,12 @@
       <workItem from="1498960221738" duration="19748000" />
       <workItem from="1499065472610" duration="4824000" />
       <workItem from="1499143879334" duration="34000" />
+      <workItem from="1499487341479" duration="5254000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94508000" />
+    <option name="totallyTimeSpent" value="99762000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -330,18 +312,18 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -482,13 +464,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminbackend/delete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="40" column="14" lean-forward="false" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/adminbackend/saveusers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -514,22 +489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="73" column="61" lean-forward="false" selection-start-line="73" selection-start-column="61" selection-end-line="73" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adminbackend/addeditdatafiles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="56" column="106" lean-forward="false" selection-start-line="56" selection-start-column="85" selection-end-line="56" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adminbackend/addeditcampaign.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="88" column="34" lean-forward="true" selection-start-line="71" selection-start-column="28" selection-end-line="88" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -563,33 +522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="17" column="24" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adminbackend/addeditassets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="129" column="107" lean-forward="false" selection-start-line="129" selection-start-column="107" selection-end-line="129" selection-end-column="107" />
-          <folding>
-            <element signature="e#6759#6780#0#HTML" expanded="false" />
-            <marker date="1499007721508" expanded="true" signature="1060:1754" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="1083:1754" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="1120:1410" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="1161:1391" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="1481:1754" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="1541:1754" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="1583:1754" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="1631:1754" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="1980:2077" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="2182:2720" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="2290:2414" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="2492:2720" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="2601:2720" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="2819:2945" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="4956:4994" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="7967:8251" ph="..." />
-            <marker date="1499007721508" expanded="true" signature="8061:8212" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -671,25 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminbackend/network.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="65" column="76" lean-forward="false" selection-start-line="65" selection-start-column="76" selection-end-line="65" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adminbackend/includes/adminfunctions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="84" column="45" lean-forward="false" selection-start-line="84" selection-start-column="45" selection-end-line="84" selection-end-column="45" />
-          <folding>
-            <marker date="1499068229254" expanded="true" signature="295:410" ph="SELECT * FRO... users_metadata" />
-            <marker date="1499068229254" expanded="true" signature="668:719" ph="SELECT `disp... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MysqliDb.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -697,37 +610,6 @@
           <folding>
             <marker date="1497680143334" expanded="true" signature="22234:22246" ph="DELETE FROM " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adminbackend/campaign.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="66" column="50" lean-forward="false" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adminbackend/assets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="64" column="75" lean-forward="false" selection-start-line="64" selection-start-column="75" selection-end-line="64" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adminbackend/server.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="65" column="87" lean-forward="false" selection-start-line="65" selection-start-column="87" selection-end-line="65" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adminbackend/isp.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="60" column="67" lean-forward="false" selection-start-line="60" selection-start-column="67" selection-end-line="60" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,6 +625,89 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="77" column="69" lean-forward="false" selection-start-line="77" selection-start-column="69" selection-end-line="77" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminbackend/network.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="63" lean-forward="false" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminbackend/delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminbackend/campaign.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminbackend/server.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminbackend/isp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminbackend/assets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="70" column="50" lean-forward="true" selection-start-line="70" selection-start-column="50" selection-end-line="70" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminbackend/addeditassets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminbackend/addeditdatafiles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminbackend/addeditcampaign.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="76" column="110" lean-forward="true" selection-start-line="76" selection-start-column="110" selection-end-line="76" selection-end-column="158" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminbackend/includes/adminfunctions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="184" column="38" lean-forward="false" selection-start-line="184" selection-start-column="9" selection-end-line="184" selection-end-column="38" />
+          <folding>
+            <marker date="1499493556676" expanded="true" signature="295:410" ph="SELECT * FRO... users_metadata" />
+            <marker date="1499493556676" expanded="true" signature="668:719" ph="SELECT `disp... users" />
+          </folding>
         </state>
       </provider>
     </entry>
