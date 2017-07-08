@@ -25,7 +25,7 @@
     <!-- Custom Theme Style -->
     <link href="<?php echo ADMIN_URL; ?>assets/css/custom.min.css" rel="stylesheet">
 </head>
-<body class="nav-md">
+<body class="nav-md login-admin">
 <div class="container body">
     <div class="main_container">
         <?php
@@ -55,7 +55,11 @@
         <div class="login_wrapper">
             <div class="animate form login_form">
                 <section class="login_content">
-        <?= $message ?>
+                    <?php if($message != ''): ?>
+                    <div class="alert alert-danger">
+                        <?=$message?>
+                    </div>
+                    <?php endif; ?>
                     <form action="checklogin.php" method="post" id="loginform">
                         <h1>Login Form</h1>
                         <div>
