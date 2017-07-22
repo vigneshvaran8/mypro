@@ -1,6 +1,6 @@
 <?php
 /**
- * This File contains common functions required in admin side.
+ * This File contains common functions required.
  */
 session_start();
 require_once($_SERVER['DOCUMENT_ROOT'] . '/mailing/connect.php');

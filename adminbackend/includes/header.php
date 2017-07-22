@@ -11,11 +11,11 @@
     <title>Admin Dashboard</title>
     <?php
     require "../connect.php";
-    if(!$_SESSION['username']){
+    require "adminfunctions.php";
+    if(checkUsercapability($_SESSION['userid'])!= 'administrator'){
         header('Location:'.ADMIN_URL.'login.php?message=timedout');
         exit();
     }
-    require "adminfunctions.php";
     ?>
     <!-- Bootstrap -->
     <link href="<?php echo ADMIN_URL; ?>assets/css/bootstrap.min.css" rel="stylesheet">
