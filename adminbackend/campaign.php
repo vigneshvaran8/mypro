@@ -56,6 +56,7 @@ if( $_SESSION['msg'] ){
                                     <th>Supp File Name</th>
                                     <th>Landing Page URL</th>
                                     <th>Optout URL</th>
+                                    <th>Unsubscribe URL</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -64,7 +65,7 @@ if( $_SESSION['msg'] ){
                                 <tbody>
                                 <?php if( count(getAllcampaign()) == 0 ): ?>
                                 <tr>
-                                    <td colspan="9">There are no campaigns.</td>
+                                    <td colspan="10">There are no campaigns.</td>
                                 </tr>
                                 <?php else: ?>
                                     <?php foreach( getAllcampaign() as $campaigns ): ?>
@@ -76,6 +77,7 @@ if( $_SESSION['msg'] ){
                                         <td><?php echo $campaigns['supp_file'] ?></td>
                                         <td><?php echo $campaigns['landing_page_url'] ?></td>
                                         <td><?php echo $campaigns['optout_url'] ?></td>
+                                        <td><?php echo $campaigns['unsubscribe_url'] ?></td>
                                         <td>
                                         <a href="<?php echo ADMIN_URL.'addeditcampaign.php?campaign_id='.$campaigns['campaign_id'].'' ?>">Edit</a>
                                         </td>

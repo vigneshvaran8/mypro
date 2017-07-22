@@ -19,6 +19,7 @@ if(isset($_POST))
         'supp_file' => $_POST['supp_file_name'],
         'landing_page_url' => $_POST['landing_page_url'],
         'optout_url' => $_POST['optout_url'],
+        'unsubscribe_url' => $_POST['unsubscribe_url'],
         'created_at' => date("Y-m-d H:i:s"),
         'updated_at' => date("Y-m-d H:i:s")
         );

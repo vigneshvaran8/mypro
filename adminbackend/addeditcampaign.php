@@ -21,6 +21,7 @@ $campaignData = array(
         'supp_file' => '',
         'landing_page_url' => '',
         'optout_url' => '',
+        'unsubscribe_url' => ''
         );
 if( $_GET['campaign_id'] ){
 	$campaignID = $_GET['campaign_id'];
@@ -106,6 +107,13 @@ if( $_GET['campaign_id'] ){
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="text" id="optout-url" name="optout_url" 
                                     value="<?php echo $campaignData['optout_url'] ?>" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="optout-url">Unsubscribe URL</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="unsubscribe-url" name="unsubscribe_url"
+                                    value="<?php echo $campaignData['unsubscribe_url'] ?>" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <?php if( $campaignID ): ?>
