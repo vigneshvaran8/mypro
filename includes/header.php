@@ -3,39 +3,54 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title><?php echo ((isset($pageTitle)?$pageTitle:'')); ?></title>
     <?php
     require "connect.php";
     require "adminbackend/includes/adminfunctions.php";
-    if(checkUsercapability($_SESSION['userid'])!= 'employee'){
+    if( checkUsercapability($_SESSION['userid'])!= 'employee' ){
         header('Location:'.SITE_URL.'login.php?message=timedout');
         exit();
     }
     ?>
-    <link href="<?php echo SITE_URL; ?>assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>assets/css/font-awesome.css">
+    <!-- Bootstrap -->
+    <link href="<?php echo SITE_URL; ?>assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="<?php echo SITE_URL; ?>assets/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="<?php echo SITE_URL; ?>assets/css/nprogress.css" rel="stylesheet">
+    <!-- Bootstrap Select CSS -->
+    <link href="<?php echo SITE_URL; ?>assets/css/bootstrap-select.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="<?php echo SITE_URL; ?>assets/css/custom.min.css" rel="stylesheet">
 </head>
-<div class="site">
-  <nav class="user-navigation">
-        <ul>
-        <li>
-            Welcome,
-            <strong><?= getUserdisplayname() ?></strong>
-        </li>
-        <li><a href="<?php echo SITE_URL.'logout.php'; ?>">Logout</a></li>
-  </nav>  
-  <header class="site-header">
-    <h1 class="site-title"><?=$pageTitle ?></h1>
-    
-    <nav class="site-navigation">
-      <ul>
-        <li><a href="#">Data Suppression</a></li>
-        <li><a href="#">Data Transfer</a></li>
-        <li><a href="#">Track ID Generation</a></li>
-        <li><a href="<?php echo SITE_URL.'assets.php'; ?>">Assets</a></li>
-      </ul>
-    </nav><!-- .site-navigation -->
-  </header><!-- .site-header -->
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="<?php echo SITE_URL.'dashboard.php' ?>" class="site_title"><i class="fa fa-paw"></i> <span><?=$pageTitle ?></span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_pic" style="display: none">
+                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                    </div>
+                    <div class="profile_info">
+                        <span>Welcome,</span>
+                        <h2><?= getUserdisplayname() ?></h2>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- /menu profile quick info -->
+                <br />
+<?php require_once 'sidebar.php'; ?>

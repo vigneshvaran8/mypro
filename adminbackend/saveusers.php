@@ -25,7 +25,8 @@ if(isset($_POST))
         'user_registered' => date("Y-m-d H:i:s"),
         'user_status' => $_POST['user_status'],
         'display_name' => $_POST['display_name'],
-        'user_capability' => $_POST['user_capability']
+        'user_capability' => $_POST['user_capability'],
+        'employee_id' => $_POST['user_employee_id']
     );
     $userID = '';
     if( $_POST['user_id'] ){

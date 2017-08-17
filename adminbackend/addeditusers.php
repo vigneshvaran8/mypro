@@ -24,7 +24,8 @@ $userData = array(
     'user_pass' => '',
     'user_email' => '',
     'user_status' => '',
-    'display_name' => ''
+    'display_name' => '',
+    'employee_id' => ''
 );
 if( $_GET['user_id'] ){
     $userID = $_GET['user_id'];
@@ -83,6 +84,14 @@ if( $_GET['user_id'] ){
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <input type="text" id="display-name" name="display_name"
                                                value="<?php echo $userData['display_name'] ?>" class="form-control col-md-7 col-xs-12" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="user-employee-id">User / Employee ID
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="user-employee-id" name="user_employee_id"
+                                               value="<?php echo $userData['employee_id'] ?>" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">

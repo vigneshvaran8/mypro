@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require "includes/header.php"; ?>
 <?php
 switch ($_GET['message'])
@@ -22,6 +23,11 @@ switch ($_GET['message'])
         $message = 'Password changed successfully';
         $msgClass = 'alert alert-success';
         break;
+}
+if( $_SESSION['msg'] ){
+    $message = $_SESSION['msg'];
+    $msgClass = 'alert alert-danger';
+    $_SESSION['msg'] = '';
 }
 ?>
 <link href="<?php echo ADMIN_URL; ?>assets/css/dataTables.bootstrap.min.css" rel="stylesheet">
@@ -58,6 +64,7 @@ switch ($_GET['message'])
                                 <th>ID</th>
                                 <th>User Name</th>
                                 <th>Display Name</th>
+                                <th>User / Employee ID</th>
                                 <th>Registered On</th>
                                 <th>User Status</th>
                                 <th>User Capability</th>
@@ -70,7 +77,7 @@ switch ($_GET['message'])
                             <tbody>
                             <?php if( count(getAllusers()) == 0 ): ?>
                                 <tr>
-                                    <td colspan="8">There are no users</td>
+                                    <td colspan="9">There are no users</td>
                                 </tr>
                             <?php else: ?>
                                 <?php foreach( getAllusers() as $user ): ?>
@@ -78,6 +85,7 @@ switch ($_GET['message'])
                                         <td><?php echo $user['user_id']; ?></td>
                                         <td><?php echo $user['user_name']; ?></td>
                                         <td><?php echo $user['display_name']; ?></td>
+                                        <td><?php echo $user['employee_id']; ?></td>
                                         <td><?php echo date('d M y H:i:s',strtotime($user['user_registered'])); ?></td>
                                         <td><?php echo (($user['user_status'] === 1)?'Active':'Not Active'); ?></td>
                                         <td><?php echo get_user_meta('user_capability',$user['user_id']) ?></td>
@@ -88,9 +96,11 @@ switch ($_GET['message'])
                                             <a href="<?php echo ADMIN_URL.'addeditusers.php?user_id='.$user['user_id'].'' ?>">Edit</a>
                                         </td>
                                         <td>
+                                            <?php if( get_user_meta('user_capability',$user['user_id']) != 'administrator' ): ?>
                                             <a href="<?php echo ADMIN_URL.'delete.php?user_id='.$user['user_id'].'' ?>"
                                                onclick="return confirm('Are you sure you want to delete this User?');"
                                             >Delete</a>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

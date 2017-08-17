@@ -1,8 +1,29 @@
-<input type="hidden" name="ajax_url" id="ajax-url" value="<?= AJAX_URL ?>">
-<footer class="site-footer">
-    <p>Copyright Adboxers Technology</p>
-  </footer><!-- .site-footer -->
-</div><!-- .site -->
+<footer>
+    <input type="hidden" name="ajax_url" id="ajax-url" value="<?= AJAX_URL ?>">
+    <div class="pull-right">
+        
+    </div>
+    <div class="clearfix"></div>
+</footer>
+</div>
+</div>
+
 <!-- jQuery -->
 <script src="<?php echo SITE_URL; ?>assets/js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="<?php echo SITE_URL; ?>assets/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="<?php echo SITE_URL; ?>assets/js/fastclick.js"></script>
+<!-- NProgress -->
+<script src="<?php echo SITE_URL; ?>assets/js/nprogress.js"></script>
+<!-- Bootstrap Select JS -->
+<script src="<?php echo SITE_URL; ?>assets/js/bootstrap-select.min.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="<?php echo SITE_URL; ?>assets/js/custom.min.js"></script>
+
 <script src="<?php echo SITE_URL; ?>assets/js/customfunctions.js"></script>
+
+</body>
+</html>
+

@@ -49,6 +49,12 @@
                 </ul>
             </li>
             <li>
+                <a><i class="fa fa-clone"></i>Track ID<span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="<?php echo ADMIN_URL.'viewtrackids.php' ?>">Manage Track Ids</a></li>
+                </ul>
+            </li>
+            <li>
                 <a><i class="fa fa-clone"></i>Users<span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="<?php echo ADMIN_URL.'users.php' ?>">All Users</a></li>

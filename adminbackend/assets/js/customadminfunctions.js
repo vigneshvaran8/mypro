@@ -33,3 +33,12 @@ function getCampaigninNetwork(e)
         });
     }
 }
+function showTrackIdsubmittedinfo(e) {
+    var newTr = '<tr><td colspan="8">'+jQuery(e).closest('td').prev('td').html()+'</td></tr>';
+    jQuery(newTr).insertAfter(jQuery(e).closest('tr'));
+    jQuery(e).closest('td').html('<a href="javascript:void(0)" onclick="hideTrackIdsubmittedinfo(this);">Hide Details</a>');
+}
+function hideTrackIdsubmittedinfo(e) {
+    jQuery(e).closest('tr').next().remove();
+    jQuery(e).closest('td').html('<a href="javascript:void(0)" onclick="showTrackIdsubmittedinfo(this);">View Details</a>');
+}

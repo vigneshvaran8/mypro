@@ -12,6 +12,7 @@ global $db;
  */
 function checkUsercapability($userId)
 {
+    if( $userId == '' )return false;
     global $db;
     $query = "SELECT * FROM `users_metadata`
                 WHERE `meta_key`='user_capability' and 
@@ -35,6 +36,28 @@ function getUserdisplayname()
     } else {
         return false;
     }
+}
+
+function getUseremployeeid()
+{
+    global $db;
+    $userId = $_SESSION['userid'];
+    $query = "SELECT `employee_id` FROM `users` WHERE `user_id`=$userId";
+    $result = $db->query($query,1);
+    if (count($result) > 0) {
+        return $result[0]['employee_id'];
+    } else {
+        return false;
+    }
+}
+
+function getEmployeeIdbyuserid($userId)
+{
+    global $db;
+    $tableName = 'users';
+    $db->where('user_id',$userId);
+    $user = $db->getOne($tableName);
+    return $user['employee_id'];
 }
 
 function saveOptions($optionkey, $optionvalue)
@@ -247,6 +270,15 @@ function getServerdetailbyid($serverdetailID)
     return $serverDetail;
 }
 
+function getServernamebyid($serverdetailID)
+{
+    global $db;
+    $tableName = 'server_detail';
+    $db->where("server_detail_id", $serverdetailID);
+    $serverDetail = $db->getOne ($tableName);
+    return $serverDetail['server_name'];
+}
+
 function saveServer($serverdetailData,$serverdetailID)
 {
     global $db;
@@ -445,8 +477,8 @@ function saveUser($userData,$userId=null)
     global $db;
     $tableName = 'users';
     if( $userId ){
-        $db->where('user_id', $userId)
-            ->update($tableName, ['user_name' => $userData['user_name'],'user_status' => $userData['user_status'],'display_name' => $userData['display_name']]);
+        $user = $db->where('user_id', $userId)
+                ->update($tableName, ['user_name' => $userData['user_name'],'user_status' => $userData['user_status'],'display_name' => $userData['display_name'],'employee_id' => $userData['employee_id']]);
         save_user_meta('user_capability',$userData['user_capability'],$userId);
     }
     else{
@@ -456,10 +488,17 @@ function saveUser($userData,$userId=null)
             "user_email" => '',
             "user_registered" => $userData['user_registered'],
             "user_status" => $_POST['user_status'],
-            "display_name" => $_POST['display_name']
+            "display_name" => $_POST['display_name'],
+            "employee_id" => $userData['employee_id']
         );
         $user = $db->insert($tableName,$insertData);
         save_user_meta('user_capability',$userData['user_capability'],$user);
+    }
+    if( !$user ){
+        $errormsg = $db->getLastError();
+        $_SESSION['msg'] = $errormsg;
+        header('Location:'.ADMIN_URL.'users.php?message=error');
+        exit();
     }
     return;
 }
@@ -568,6 +607,21 @@ function getCampaignsIDandNameinnetwork($networkID)
     return $allCampaigns;
 }
 
+function getDatafilelabelinisp($ispID)
+{
+    global $db;
+    $tableName = 'datafiles';
+    $dataLabels = array();
+    $db->where("isp_id", $ispID);
+    $datafiles = $db->getOne ($tableName);
+    if($datafiles){
+        foreach(json_decode($datafiles['datafiles_label']) as $dataLabel){
+            $dataLabels[] = $dataLabel;
+        }       
+    }
+    return $dataLabels;   
+}
+
 function saveAssets($assetsData,$assetsID)
 {
     global $db;
@@ -610,3 +664,120 @@ function deleteAssests($assetsId)
     return;
 }
 
+function getIspdatabyispId($ispId)
+{
+    global $db;
+    $tableName = 'isp';
+    $db->where("isp_id", $ispId);
+    $isp = $db->getOne ($tableName);
+    return $isp;
+}
+
+function trackidPost($trackingDatas)
+{
+    global $db;
+    $ispData = getIspdatabyispId($trackingDatas['isp_id']);
+    $ispName = str_replace(' ','',$ispData['isp_name']);
+    $campaignData = getCampaigndatabyid($trackingDatas['campaign_id']);
+    $networkName = str_replace(' ','',getNetworknamebyid($trackingDatas['network_id']));
+    $subId = $trackingDatas['employee_id'].'_'.
+                substr($ispName,0,3).
+                $campaignData['campaign_name_id'].
+                substr($networkName,0,2).
+                date('dmyHis',time());
+    $finalSubId = strtolower($subId);
+    $tableName = 'trackid';
+    $landingPageurl = $campaignData['landing_page_url'];
+    $finallandingPageurl = str_replace('[subid]',$finalSubId,$landingPageurl);
+    $optoutPageurl = $campaignData['optout_url'];
+    $finaloptoutPageurl = str_replace('[subid]',$finalSubId,$optoutPageurl);
+    $unsubscribePageurl = $campaignData['unsubscribe_url'];
+    $finalunsubscribePageurl = str_replace('[subid]',$finalSubId,$unsubscribePageurl);
+    $trackData = array(
+        "sub_id"  => $finalSubId,
+        "employee_id" => $trackingDatas['employee_id'],
+        "landing_page_url" => $finallandingPageurl,
+        "optout_url" => $finaloptoutPageurl,
+        "unsubscribe_url" => $finalunsubscribePageurl,
+        "created_at" => date("Y-m-d H:i:s"),
+        "updated_at" => date("Y-m-d H:i:s")
+    );
+    $track = $db->insert($tableName,$trackData);
+    if( $track ){
+        $tableName = 'trackidsubmitdata';
+        $trackSubmitdata = array(
+          "network_name" => getNetworknamebyid($trackingDatas['network_id']),
+          "campaign_name" => $campaignData['campaign_name'],
+          "campaign_name_id" => $campaignData['campaign_name_id'],
+          "output_datafile" => $trackingDatas['output_data_file'],
+          "server_name" => getServernamebyid($trackingDatas['server_name']),
+          "isp_name" => $ispData['isp_name'],
+          "datafiles_label" => $trackingDatas['datafile'],
+          "employee_id" => $trackingDatas['employee_id'],
+          "trackid" => $track,
+          "created_at" => date("Y-m-d H:i:s")
+        );
+        $trackSubmitdatainsert = $db->insert($tableName,$trackSubmitdata);
+    }
+    if( $track && $trackSubmitdatainsert )
+    {
+        return $track;
+    }
+    else{
+        $errormsg = $db->getLastError();
+        $_SESSION['msg'] = $errormsg;
+        header('Location:'.SITE_URL.'trackidgeneration.php?message=error');
+        exit();
+    }
+}
+
+function getAlltrackids($employeeId = '')
+{
+    global $db;
+    $tableName = 'trackid';
+    if( $employeeId != '' )
+        $db->where('employee_id', $employeeId);
+    $trackid = $db->get($tableName);
+    return $trackid;
+}
+
+function getTrackIdsubmitteddatabytrackid($trackId)
+{
+    global $db;
+    $tableName = 'trackidsubmitdata';
+    $db->where('trackid',$trackId);
+    $trackIddatas = $db->getOne ($tableName);
+    $html = '';
+    $html .= '<b>Network:</b> '.$trackIddatas['network_name']."<br>";
+    $html .= '<b>Campaign ID:</b> '.$trackIddatas['campaign_name'].'( '.$trackIddatas['campaign_name_id'].' )'."<br>";
+    $html .= '<b>Output Data File:</b> '.$trackIddatas['output_datafile']."<br>";
+    $html .= '<b>Server Name:</b> '.$trackIddatas['server_name']."<br>";
+    $html .= '<b>ISP:</b> '.$trackIddatas['isp_name']."<br>";
+    $html .= '<b>Data File:</b> '.$trackIddatas['datafiles_label']."<br>";
+    return $html;
+}
+
+function updateTrackid($trackingDatas)
+{
+    global $db;
+    $tableName = 'trackid';
+    $updateTrack = $db->where('trackid', $trackingDatas['trackid'])
+                    ->update($tableName,
+                        [
+                            'sub_id' => $trackingDatas['subId'],
+                            'landing_page_url' => $trackingDatas['landingpageurl'],
+                            'optout_url' => $trackingDatas['optoutpageurl'],
+                            'unsubscribe_url' => $trackingDatas['unsubsribepageurl'],
+                            'updated_at' => date("Y-m-d H:i:s")
+                        ]
+                    );
+    if($updateTrack){
+        return;
+    }
+    else{
+        $errormsg = $db->getLastError();
+        $_SESSION['msg'] = $errormsg;
+        header('Location:'.SITE_URL.'viewtrackids.php?message=error');
+        exit();
+    }
+}

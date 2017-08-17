@@ -44,6 +44,12 @@ switch ($_GET['message'])
                                     <input type="text" id="host-server-data-file-folder-path" name="host_server_data_file_folder_path" value="<?php echo getOptionbykey('host_server_data_file_folder_path') ?>" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
+                            <div class="form-group" style="display: none;">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="host-server-data-file-url">Host Server Data File URL</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="host-server-data-file-url" name="host_server_data_file_url" value="<?php echo getOptionbykey('host_server_data_file_url') ?>" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="destination-server-data-file-folder-path">Destination Server Data File Folder Path</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">

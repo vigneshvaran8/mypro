@@ -15,7 +15,7 @@ function getAssetsinCampaign($campaignId)
     $assets = $db->getOne ($tableName);
     $output = '';
     if( $assets ){
-    	$output .= '<table class="assets-table">';
+    	$output .= '<table class="table">';
     	$output .= '<tr class="row1">';
     	$output .= '<td class="col1">Campaign ID</td>';
     	$output .= '<td>'.getCampaignIdnamebycampaignId($assets['campaign_id']).'</td>';
@@ -39,7 +39,45 @@ function getAssetsinCampaign($campaignId)
     	$output .= '</table>';
     }	
     else{
-    	$output  = 'There are no assets for this Campaign.';
+        $output .= '<table class="table">';
+    	$output .= '<tr colspan="2"><td>There are no assets for this Campaign.</td></tr>';
+        $output .= '</table>';
     }
     return $output;
+}
+
+function getNumberoflinesdatafile($datafilelabel)
+{
+    $datafilePath = getOptionbykey('host_server_data_file_folder_path');
+    $datalabelFullname = $datafilePath.$datafilelabel;
+    $linecount = 0;
+    $file = trim($datalabelFullname);
+    if( file_exists($file) ){
+        $linecount = getLinecount($file);        
+    }
+    else{
+        $file = $file.".txt";
+        if( file_exists($file) )
+        $linecount = getLinecount($file);
+    }
+    return $linecount;
+}
+
+function getLinecount($fileName)
+{
+    $nooflines = 0;
+    $handle = fopen($fileName, "r");
+    while(!feof($handle)){
+      $line = fgets($handle);
+      $nooflines++;
+    }
+    fclose($handle);
+    if( $nooflines > 0 )$nooflines = $nooflines - 1;
+    return $nooflines;
+}
+
+function getSuppressionfileofcampaign($campaignId)
+{
+    $campaignData = getCampaigndatabyid($campaignId);
+    return $campaignData['supp_file'];
 }
